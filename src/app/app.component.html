@@ -4,7 +4,7 @@
       <a routerLink="/" class="text-white font-bold text-xl">AhoraSiDormi</a>  </div>
     <ul class="flex space-x-4">
       <li *ngFor="let route of routes">
-        <div *ngIf="(isLogged() && route.title != 'Inicio de sesion') || (!isLogged()) ">
+        <div *ngIf="(isLogged() && (route.title != 'Inicio de sesion' && route.title != 'Registro')) || (!isLogged()) ">
         <a [routerLink]="route.path" routerLinkActive="active"
            class="text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
            [title]="route.title">
