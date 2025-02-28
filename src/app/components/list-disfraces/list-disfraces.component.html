@@ -1,0 +1,50 @@
+<div class="disfraces-list p-6 bg-gray-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4">List of Disfraces</h2>
+    <ul>
+        <li *ngFor="let disfraz of disfraces" class="mb-4 p-4 bg-white rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold">{{ disfraz.nombre }}</h3>
+            <p class="text-gray-700">{{ disfraz.precio }}</p>
+            <p class="text-gray-700">{{ disfraz.categoria }}</p>
+            <p class="text-gray-700">{{ disfraz.talla }}</p>
+            <p class="text-gray-700">{{ disfraz.color }}</p>
+            <img src="{{ disfraz.imagen }}" alt="{{ disfraz.name }}" class="mt-2 rounded-lg">
+            <img id="disfrazImage" alt="{{ disfraz.name }}" class="mt-2 rounded-lg">
+        </li>
+    </ul>
+</div>
+<div class="add-disfraz-form p-6 bg-gray-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold mb-4">Add New Disfraz</h2>
+    <form (ngSubmit)="saveDisfraz()" enctype="multipart/form-data" class="space-y-4">
+        <div>
+            <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre:</label>
+            <input type="text" id="nombre" [(ngModel)]="newDisfraz.nombre" name="nombre" required class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+
+        <div>
+            <label for="talla" class="block text-sm font-medium text-gray-700">Talla:</label>
+            <input type="text" id="talla" [(ngModel)]="newDisfraz.talla" name="categoria" required class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+
+        <div>
+            <label for="color" class="block text-sm font-medium text-gray-700">Color:</label>
+            <input type="text" id="color" [(ngModel)]="newDisfraz.color" name="categoria" required class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+        
+        <div>
+            <label for="precio" class="block text-sm font-medium text-gray-700">Precio:</label>
+            <input type="number" id="precio" [(ngModel)]="newDisfraz.precio" name="precio" required class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+
+        <div>
+            <label for="categoria" class="block text-sm font-medium text-gray-700">Categoría:</label>
+            <input type="text" id="categoria" [(ngModel)]="newDisfraz.categoria" name="categoria" required class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+        
+        <div>
+            <label for="imagen" class="block text-sm font-medium text-gray-700">Imagen:</label>
+            <input type="file" id="imagen" (change)="onFileSelected($event)" name="imagen" required class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+        
+        <button type="submit" class="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add Disfraz</button>
+    </form>
+</div>
