@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import Swal from 'sweetalert2';
 import { DisfrazService } from '../../services/disfraz.service';
+import { environment } from '../../../environments/environment';
+import { ChangeDetectorRef } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-disfraces',
@@ -14,13 +16,13 @@ import { DisfrazService } from '../../services/disfraz.service';
 export class ListDisfracesComponent implements OnInit {
 
   disfraces: any[] = [];
-  currentDisfraz: any = { nombre: '', talla: '', color: '' , precio: '', categoria: '', imagen: File };
-  newDisfraz: any = { nombre: '', talla: '', color: '', precio: '', categoria: '', imagen: File };
+  currentDisfraz: any = { nombre: '', talla: '', color: '', precio: '', categoria: '', imagen: '' };
+  newDisfraz: any = { nombre: '', talla: '', color: '', precio: '', categoria: '', imagen: '' };
   currentImage: any;
   amount: number = 0;
   editing: boolean = false;
   adding: boolean = false;
-  constructor(private userService: UserService, private disfrazService: DisfrazService) { }
+  constructor(private userService: UserService, private disfrazService: DisfrazService,private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.loadDisfraces();
@@ -32,17 +34,20 @@ export class ListDisfracesComponent implements OnInit {
 
       (response) => {
         this.disfraces = response.disfraces;
+        this.disfraces.forEach(disfraz => {
+          disfraz.imagenUrl = `${environment.apiUrl}/imagen/${disfraz.imagen}`;
+        });
       })
   }
 
-  getImagen(id: string): void {
-    this.currentImage = document.getElementById('disfrazImage');
-    this.disfrazService.getImage(id).subscribe(
-      (response) => {
-        response.json();
-        this.currentImage.src = response.primaryImage;
-      }
-    )
+  test(a: string): void {
+    console.log(a);  
+  }
+
+ getImagen(id: string): void {
+    this.currentImage = `${environment.apiUrl}/imagen/${id}`;
+    console.log(this.currentImage);
+    this.cdRef.detectChanges();
   }
 
   onFileSelected(event: any) {

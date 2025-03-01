@@ -27,7 +27,4 @@ export class DisfrazService {
     return this.http.get<any>(`${this.apiUrl}/Disfraz`);
   }
 
-  getImage(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/Disfraz/imagen/${id}`);
-  }
 }

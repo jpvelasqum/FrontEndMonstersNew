@@ -7,26 +7,6 @@ import { ListDisfracesComponent } from './components/list-disfraces/list-disfrac
 
 export const routes: Routes = [
     {
-        title: 'Lista de empleados',
-        path: 'empleados',
-        component: ListEmpleadosComponent
-    },
-    {
-        title: 'Lista de departamentos',
-        path: 'departamentos',
-        component: ListDepartamentosComponent
-    },
-    {
-        title: 'Registro',
-        path: 'register', //ruta de registrar usuario
-        component: RegisterUserComponent
-    },
-    {
-        title: 'Inicio de sesion',
-        path: 'login',
-        component: LoginUserComponent
-    },
-    {
         title: 'Lista de disfraces',
         path: 'disfraces',
         component: ListDisfracesComponent
