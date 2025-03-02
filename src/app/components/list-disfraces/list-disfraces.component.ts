@@ -33,6 +33,7 @@ export class ListDisfracesComponent implements OnInit {
     this.disfrazService.readDisfraces().subscribe(
 
       (response) => {
+        console.log(response);
         this.disfraces = response.disfraces;
         this.disfraces.forEach(disfraz => {
           disfraz.imagenUrl = `${environment.apiUrl}/imagen/${disfraz.imagen}`;
