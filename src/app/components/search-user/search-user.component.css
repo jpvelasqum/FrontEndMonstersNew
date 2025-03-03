@@ -1,0 +1,79 @@
+body {
+  background-color: #1a1a1a; 
+  color: #f4f4f4;
+  font-family: 'Creepster', cursive;
+}
+
+.container {
+  padding: 20px;
+}
+
+.satanic-font {
+  font-family: 'Creepster', cursive;
+  color: #ff0000; 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.max-w-md {
+  background-color: #222;
+  border-radius: 12px;
+  border: 2px solid #b30000;
+}
+
+h2 {
+  color: #ff3333;
+}
+
+input, button {
+  background-color: #333;
+  color: #f4f4f4;
+  border: 1px solid #ff6666; 
+}
+
+input:focus, button:focus {
+  border-color: #ff0000; 
+  box-shadow: 0 0 5px #ff0000;
+}
+
+button {
+  background-color: #ff0000;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #cc0000;
+}
+
+h2, h3 {
+  color: #ff0000;
+}
+
+.text-red-500, .text-red-400 {
+  color: #ff3333;
+}
+
+.text-gray-300 {
+  color: #c4c4c4;
+}
+
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-red-600 {
+  border-color: #b30000;
+}
+
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+
+.shadow-md:hover {
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}

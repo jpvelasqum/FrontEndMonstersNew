@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap'); 
+
+body {
+  background-color: #2b1a1a;
+  color: #F0F0F0; 
+  font-family: 'UnifrakturCook', cursive;
+  margin: 0;
+  padding: 0;
+}
+
+.input-field {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #A71C1C;
+  width: 100%;
+  outline: none;
+  background-color: #3A1C1C;
+  color: #F0F0F0;
+  font-family: 'UnifrakturCook', cursive;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  background-color: #6C0E0E;
+  box-shadow: 0 0 5px rgba(167, 28, 28, 0.8);
+}
+
+
+.boton1, .boton2, .boton3 {
+  background-color: #6C0E0E; 
+  border: 2px solid #A71C1C; 
+  color: #F0F0F0;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'UnifrakturCook', cursive;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7); 
+}
+
+.boton1:hover, .boton2:hover, .boton3:hover {
+  background-color: #A71C1C;
+  transform: scale(1.1);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.9); 
+}
+
+
+.container {
+  padding: 20px;
+  background-color: #2b1a1a;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.text-gray-800 {
+  color: #F0F0F0;
+}
+
+.text-gray-700 {
+  color: #F0F0F0;
+}
+
+.text-gray-500 {
+  color: #a1a1a1;
+}

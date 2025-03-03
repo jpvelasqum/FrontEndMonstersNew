@@ -1,0 +1,112 @@
+<div *ngIf="!isLogged()" class="flex justify-center items-center h-screen text-red-600 text-2xl satanic-font">
+    Inicie sesión para poder ver los empleados
+  </div>
+  
+  <div *ngIf="!editing && isLogged()" class="container mx-auto p-4">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold text-red-600 satanic-font">Lista de empleados</h2>
+      <button class="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-md" (click)="adding=true; newEmpleado = {}; loadDepartamentos();">
+        Agregar Empleado
+      </button>
+    </div>
+    <table class="min-w-full border border-collapse table-auto">
+      <thead>
+        <tr class="bg-black text-red-500">
+          <th class="border px-4 py-2 text-left font-medium uppercase tracking-wider">Codigo</th>
+          <th class="border px-4 py-2 text-left font-medium uppercase tracking-wider">Empleado</th>
+          <th class="border px-4 py-2 text-left font-medium uppercase tracking-wider">Departamento</th>
+          <th class="border px-4 py-2 text-left font-medium uppercase tracking-wider">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empleado of empleados; index as i" class="border-b hover:bg-black">
+          <td class="border px-4 py-2 text-gray-200">{{ empleado.codigo }}</td>
+          <td class="border px-4 py-2 text-gray-200">{{ empleado.nombre }} {{ empleado.apellido1 }} {{ empleado.apellido2 }}</td>
+          <td class="border px-4 py-2 text-gray-200">{{ empleado.departamento.nombre }}</td>
+          <td class="border px-4 py-2 flex items-center justify-center">
+            <button class="bg-red-600 hover:bg-red-800 text-white font-bold mx-1 py-2 px-4 rounded-md" (click)="delete(empleado.nombre,empleado.codigo)">
+              Eliminar
+            </button>
+            <button class="bg-blue-600 hover:bg-blue-800 text-white font-bold mx-1 py-2 px-4 rounded-md" (click)="editing=true; currentEmpleado=empleado; loadDepartamentos();">
+              Editar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="editing" class="container mx-auto p-4">
+    <div class="bg-black p-6 rounded-lg shadow-md border-2 border-red-600">
+      <h2 class="text-2xl font-bold text-red-600 mb-4 satanic-font">Editando a {{ currentEmpleado.nombre }}</h2>
+  
+      <div class="mb-4">
+        <label for="currentNombre" class="block text-red-500 font-bold mb-2">Nombre</label>
+        <input id="currentNombre" [(ngModel)]="currentEmpleado.nombre" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-black" placeholder="{{ currentEmpleado.nombre }}">
+      </div>
+  
+      <div class="mb-4">
+        <label for="currentApellido1" class="block text-red-500 font-bold mb-2">Primer Apellido</label>
+        <input id="currentApellido1" [(ngModel)]="currentEmpleado.apellido1" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-black" placeholder="{{ currentEmpleado.apellido1 }}">
+      </div>
+  
+      <div class="mb-4">
+        <label for="currentApellido2" class="block text-red-500 font-bold mb-2">Segundo Apellido</label>
+        <input id="currentApellido2" [(ngModel)]="currentEmpleado.apellido2" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-black" placeholder="{{ currentEmpleado.apellido2 }}">
+      </div>
+  
+      <div class="mb-4">
+        <label for="currentDepartamento" class="block text-red-500 font-bold mb-2">Departamento</label>
+        <select id="currentDepartamento" [(ngModel)]="currentEmpleado.departamento" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-black">
+          <option *ngFor="let departamento of departamentos" [ngValue]="departamento">{{ departamento.nombre }}</option>
+        </select>
+      </div>
+  
+      <div class="flex justify-end">
+        <button class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-md" (click)="update()">
+          Aceptar
+        </button>
+        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold ml-2 py-2 px-4 rounded-md" (click)="editing=false; currentEmpleado = {}">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="adding" class="container mx-auto p-4">
+    <div class="bg-black p-6 rounded-lg shadow-md border-2 border-red-600">
+      <h2 class="text-2xl font-bold text-red-600 mb-4 satanic-font">Agregar Empleado</h2>
+  
+      <div class="mb-4">
+        <label for="newNombre" class="block text-red-500 font-bold mb-2">Nombre</label>
+        <input id="newNombre" [(ngModel)]="newEmpleado.nombre" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-black" placeholder="Nombre">
+      </div>
+  
+      <div class="mb-4">
+        <label for="newApellido1" class="block text-red-500 font-bold mb-2">Primer Apellido</label>
+        <input id="newApellido1" [(ngModel)]="newEmpleado.apellido1" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-black" placeholder="Primer Apellido">
+      </div>
+  
+      <div class="mb-4">
+        <label for="newApellido2" class="block text-red-500 font-bold mb-2">Segundo Apellido</label>
+        <input id="newApellido2" [(ngModel)]="newEmpleado.apellido2" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-black" placeholder="Segundo Apellido">
+      </div>
+  
+      <div class="mb-4">
+        <label for="newDepartamento" class="block text-red-500 font-bold mb-2">Departamento</label>
+        <select id="newDepartamento" [(ngModel)]="newEmpleado.departamento" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-black">
+          <option *ngFor="let departamento of departamentos" [ngValue]="departamento">{{ departamento.nombre }}</option>
+        </select>
+      </div>
+  
+      <div class="flex justify-end">
+        <button class="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-md" (click)="addEmpleado()">
+          Agregar
+        </button>
+        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold ml-2 py-2 px-4 rounded-md" (click)="adding=false; newEmpleado = {}">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+  
