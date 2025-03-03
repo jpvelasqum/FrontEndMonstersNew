@@ -1,0 +1,106 @@
+body {
+  background-color: #1a1a1a;
+  color: #f4f4f4;
+  font-family: 'Creepster', cursive; 
+}
+
+.satanic-font {
+  font-family: 'Creepster', cursive;
+  color: #ff0000; 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h2 {
+  color: #ff3333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #b30000; 
+  text-align: left;
+  padding: 12px;
+}
+
+th {
+  background-color: #222; 
+  color: #ff3333; 
+}
+
+tr:nth-child(even) {
+  background-color: #333; 
+}
+
+tr:nth-child(odd) {
+  background-color: #444; 
+}
+
+tr:hover {
+  background-color: #222; 
+}
+
+button {
+  background-color: #ff0000; 
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #cc0000; 
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px #ff0000;
+}
+
+.bg-black {
+  background-color: #222; 
+}
+
+.bg-red-600 {
+  background-color: #b30000; 
+}
+
+.bg-blue-600 {
+  background-color: #005b99; 
+}
+
+.bg-gray-300 {
+  background-color: #3a3a3a; 
+}
+
+.bg-gray-50 {
+  background-color: #333; 
+}
+
+.text-red-500 {
+  color: #ff3333;
+}
+
+.text-gray-200 {
+  color: #f4f4f4;
+}
+
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+
+.shadow-md:hover {
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-red-600 {
+  border-color: #b30000;
+}

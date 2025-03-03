@@ -9,7 +9,7 @@ import { UserService } from './services/user.service';
   selector: 'app-root',
   imports: [RouterOutlet,RouterLink,CommonModule],
   providers:[AppComponent],
-  templateUrl: './app.component.html',
+  templateUrl:'./app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {

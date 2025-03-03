@@ -18,13 +18,28 @@ export class DisfrazService {
     formData.append('talla', disfraz.talla);
     formData.append('color', disfraz.color);
     formData.append('precio', disfraz.precio);
-    formData.append('categoria', disfraz.categoria);
+    formData.append('categoria', disfraz.categoria.nombre);
     formData.append('imagen', disfraz.imagen);
     return this.http.post<any>(`${this.apiUrl}/Disfraz`, formData);
   }
 
-  readDisfraces() : Observable<any>{
+  readDisfraces(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/Disfraz`);
+  }
+
+  updateDisfraz(disfraz: any): Observable<any> {
+    const formData = new FormData();
+    formData.append('nombre', disfraz.nombre);
+    formData.append('talla', disfraz.talla);
+    formData.append('color', disfraz.color);
+    formData.append('precio', disfraz.precio);
+    formData.append('categoria', disfraz.categoria.nombre);
+    formData.append('imagen', disfraz.imagen);
+    return this.http.put<any>(`${this.apiUrl}/Disfraz/${disfraz._id}`, formData);
+  }
+
+  deleteDisfraz(id: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/Disfraz/${id}`);
   }
 
 }

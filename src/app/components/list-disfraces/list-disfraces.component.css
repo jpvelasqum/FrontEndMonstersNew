@@ -1,0 +1,73 @@
+/* Estilo general satanico */
+body {
+  background-color: #1a1a1a; /* Fondo oscuro */
+  color: #f4f4f4; /* Texto claro */
+  font-family: 'Creepster', cursive; /* Fuente gótica */
+}
+
+.satanic-font {
+  font-family: 'Creepster', cursive;
+  color: #ff0000; /* Rojo infernal */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h2, h3 {
+  color: #ff3333;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+li:hover {
+  background-color: #333; /* Efecto de hover en la lista */
+}
+
+form {
+  background-color: #222; /* Fondo más oscuro para formularios */
+}
+
+input[type="text"], input[type="number"], input[type="file"] {
+  background-color: #333; /* Fondo oscuro para campos de entrada */
+  color: #fff; /* Texto blanco */
+  border: 1px solid #b30000; /* Borde rojo infernal */
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="file"]:focus {
+  border-color: #ff3333; /* Borde rojo brillante al hacer focus */
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.8; /* Efecto de opacidad en hover */
+}
+
+.bg-red-600 {
+  background-color: #b30000; /* Rojo infernal */
+}
+
+.bg-black {
+  background-color: #000000; /* Fondo negro infernal */
+}
+
+.bg-gray-200 {
+  background-color: #2e2e2e; /* Gris oscuro para el texto */
+}
+
+.bg-black {
+  background-color: #222; /* Fondo oscuro */
+}
+
+.w-full {
+  width: 100%;
+}
+

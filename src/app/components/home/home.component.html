@@ -1,0 +1,53 @@
+<section class="container mx-auto px-4 py-6">
+    <h1 class="text-3xl font-bold text-center text-red-600 mb-8">Productos Disponibles</h1>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+        <article *ngFor="let disfraz of disfraces"
+            class="product-card rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+            <img [src]="disfraz.imagenUrl" alt="disfraz" class="w-full h-48 object-cover loading-lazy" />
+            <div class="p-4 font-serif">
+                <h3 class="text-xl font-semibold text-red-600 mb-2">{{ disfraz.nombre }}</h3>
+                <p class="text-gray-200 mb-1">Precio: {{ disfraz.precio }}</p>
+                <p class="text-gray-200 mb-1">Categoría: {{ disfraz.categoria.nombre }}</p>
+                <p class="text-gray-200 mb-1">Talla: {{ disfraz.talla }}</p>
+                <p class="text-gray-200 mb-1">Color: {{ disfraz.color }}</p>
+                <button
+                    class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Comprar</button>
+            </div>
+        </article>
+    </div>
+</section>
+<div>
+    <h2 class="text-3xl font-bold text-center text-red-600 mb-8 m-8">Eventos</h2>
+    <section class="container mx-auto grid grid-cols-1 gap-6 px-4 py-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+        <div class="event-card">
+            <a href="#">
+                <img class="rounded-t-lg" src="./Pictures/evento.jpg" alt="" />
+            </a>
+            <div class="card-content">
+                <a href="#">
+                    <h5>Marcha Zombie</h5>
+                </a>
+            </div>
+        </div>
+        <div class="event-card">
+            <a href="#">
+                <img class="rounded-t-lg" src="./Pictures/evento1.jpg" alt="" />
+            </a>
+            <div class="card-content">
+                <a href="#">
+                    <h5>Cosplay</h5>
+                </a>
+            </div>
+        </div>
+        <div class="event-card">
+            <a href="#">
+                <img class="rounded-t-lg" src="./Pictures/evento2.jpg" alt="" />
+            </a>
+            <div class="card-content">
+                <a href="#">
+                    <h5>Rondas y juegos</h5>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
