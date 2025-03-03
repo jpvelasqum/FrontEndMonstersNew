@@ -212,7 +212,7 @@ export class ListDisfracesComponent implements OnInit {
 
 
   isLogged(): boolean {
-    return true;
+    return this.userService.loggedIn;
   }
 
   setLog(a: boolean): void {
