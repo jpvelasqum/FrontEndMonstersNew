@@ -13,9 +13,7 @@ export class CategoriaService {
   constructor(private http: HttpClient) { }
 
   createCategoria(categoria: any): Observable<any> {
-    const formData = new FormData();
-    formData.append('nombre', categoria.nombre);
-    return this.http.post<any>(`${this.apiUrl}/create-categoria`, formData);
+    return this.http.post<any>(`${this.apiUrl}/create-categoria`, categoria);
   }
 
   readCategorias() : Observable<any>{

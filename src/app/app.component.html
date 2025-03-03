@@ -10,14 +10,11 @@
         <ul class="flex">
           <li *ngFor="let route of routes">
             <div
-              *ngIf="(isLogged() && (route.title != 'Inicio de sesion' && route.title != 'Registro')) || (!isLogged())">
+              *ngIf="(isLogged() && (route.title != 'Inicio de sesion' && route.title != 'Registro')) || (!isLogged() && route.title != 'Inventario')">
               <a [routerLink]="route.path" routerLinkActive="active" [title]="route.title">
-                {{ route.title }}
+              {{ route.title }}
               </a>
             </div>
-          </li>
-          <li>
-            <a href="#" class="login-btn">Log In</a>
           </li>
           <li class="text-white font-bold text-xl" *ngIf="isLogged()">Bienvenido/a {{name()}}</li>
         </ul>

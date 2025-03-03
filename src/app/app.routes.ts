@@ -14,5 +14,15 @@ export const routes: Routes = [
         title: 'Inventario',
         path: 'disfraces',
         component: ListDisfracesComponent
+    },
+    {
+        title: 'Registro',
+        path: 'register',
+        component: RegisterUserComponent
+    },
+    {
+        title: 'Inicio de sesion',
+        path: 'login',
+        component: LoginUserComponent
     }
 ];

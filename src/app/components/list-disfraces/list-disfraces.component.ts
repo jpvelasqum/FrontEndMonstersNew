@@ -20,6 +20,8 @@ export class ListDisfracesComponent implements OnInit {
   categorias: any[] = [];
   currentDisfraz: any = { nombre: '', talla: '', color: '', precio: '', categoria: '', imagen: '' };
   newDisfraz: any = { nombre: '', talla: '', color: '', precio: '', categoria: '', imagen: '' };
+  manageCategories = false;
+  newCategory: any = { nombre: '' };
   currentImage: any;
   amount: number = 0;
   editing: boolean = false;
@@ -51,6 +53,51 @@ export class ListDisfracesComponent implements OnInit {
         this.categorias = response.categorias;
       }
     )
+  }
+
+  addCategory(): void {
+    this.categoriaService.createCategoria(this.newCategory).subscribe({
+      next: (response) => {
+        Swal.fire({
+          icon: "success",
+          title: response.msg
+        });
+        this.loadCategorias();
+        this.newCategory = { nombre: '' };
+      },
+      error: (error) => {
+        console.log(error);
+        console.log(error.error.msg);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.error.msg
+        });
+      }
+    })
+  }
+
+  deleteCategory(id: string): void {
+    console.log(id);
+    
+    this.categoriaService.deleteCategoria(id).subscribe({
+      next: (response) => {
+        Swal.fire({
+          icon: "success",
+          title: response.msg
+        });
+        this.loadCategorias();
+      },
+      error: (error) => {
+        console.log(error);
+        console.log(error.error.msg);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.error.msg
+        });
+      }
+    })
   }
 
   test(a: string): void {
@@ -89,7 +136,7 @@ export class ListDisfracesComponent implements OnInit {
       },
       error: (error) => {
         console.log(error);
-        
+
         console.log(error.error.msg);
         Swal.fire({
           icon: "error",
